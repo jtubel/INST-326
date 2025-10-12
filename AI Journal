@@ -22,3 +22,32 @@ https://chatgpt.com/share/68e2de4c-cb2c-8012-ab57-dbc7df7e8252
 Week5
 I used AI to help me brainstorm functions for our project
 https://chatgpt.com/share/68e98167-6c10-8003-9c16-54e0cda53562
+
+***Which functions received AI assistance
+•	validate_case_entry()
+•	format_date()
+•	clean_case_data()
+I discussed overall structure and strategies for validation, data cleaning, and date normalization with ChatGPT. 
+The functions generate_epidemic_summary() and other logic were implemented independently without AI guidance.
+***What prompts you used and why
+I used AI mainly to brainstorm approaches and clarify best practices for structuring small utility functions.
+•	Prompt 1:
+“I’m building a function that validates case data for a public health dataset. It’s a list of dictionaries with date, location, and case count. How can I approach this in Python without using libraries like pandas?”
+I asked this because I wanted a simple, library-free way to validate nested dictionaries. AI helped outline a clean structure for looping through records and checking key validity.
+•	Prompt 2:
+“Some of the case dates in my data look like ‘03/01/25’ or ‘2025-03-01.’ I just need them to be consistent. What’s a simple way to standardize them without external libraries?”
+I used this to learn about Python’s built-in methods for parsing and reformatting dates. AI introduced the idea of using .zfill() for zero-padding and replacing slashes with dashes, which I later customized.
+These conversations were mainly for conceptual and formatting guidance — all final code was rewritten and adapted for my project’s domain.
+***How you validated and modified AI suggestions
+After receiving the AI examples, I made several changes before integrating anything:
+•	Simplified structure: I rewrote the validate_case_entry() function to focus only on existence and emptiness checks, rather than relying on external validation modules or exceptions.
+I tested each function with sample datasets containing bad entries (missing keys, invalid dates, non-integer cases) and verified that the cleaning process worked correctly end to end.
+***What you learned from the AI collaboration process
+•	I realized that AI can provide a helpful scaffold, but manual review is essential to catch subtle domain errors and ensure readability.
+•	I gained experience in verifying AI-generated logic by writing test examples and comparing outputs to expected results.
+•	It reinforced that I should treat AI output as a draft, not a finished product.
+***Decisions you made to improve AI-generated code
+•	Added stricter validation: Introduced input type checks and explicit "INVALID" outputs instead of silent failures.
+•	Improved readability: Wrote detailed docstrings with examples and parameter explanations.
+•	Extended scope: Expanded the cleaning process to handle capitalization (.title() for locations) and numeric conversion for case counts.
+
