@@ -51,3 +51,6 @@ I tested each function with sample datasets containing bad entries (missing keys
 •	Improved readability: Wrote detailed docstrings with examples and parameter explanations.
 •	Extended scope: Expanded the cleaning process to handle capitalization (.title() for locations) and numeric conversion for case counts.
 
+Week6
+I used AI to help me review for my Myth midterm
+https://chatgpt.com/share/68fd359b-88e8-8012-821b-aaa9b523aeee
