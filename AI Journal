@@ -27,8 +27,10 @@ https://chatgpt.com/share/68e98167-6c10-8003-9c16-54e0cda53562
 •	validate_case_entry()
 •	format_date()
 •	clean_case_data()
+
 I discussed overall structure and strategies for validation, data cleaning, and date normalization with ChatGPT. 
 The functions generate_epidemic_summary() and other logic were implemented independently without AI guidance.
+
 ***What prompts you used and why
 I used AI mainly to brainstorm approaches and clarify best practices for structuring small utility functions.
 •	Prompt 1:
@@ -54,3 +56,28 @@ I tested each function with sample datasets containing bad entries (missing keys
 Week6
 I used AI to help me review for my Myth midterm
 https://chatgpt.com/share/68fd359b-88e8-8012-821b-aaa9b523aeee
+
+Week7
+I used AI to help me plan and review the object-oriented design for my part of the project.
+https://chatgpt.com/share/6907d6b9-d0c0-8012-94e4-1674aaa5dbdb
+Which classes received AI assistance
+
+• CaseRecord
+• CaseDataset
+
+I discussed how to convert procedural code from Project 1 into a class-based design and how to add validation and encapsulation properly.
+The rest of the logic—cleaning, filtering, and summarizing was written and tested independently after reviewing AI examples.
+
+Prompts I used
+
+• Prompt 1:
+“I’m trying to convert my Project 1 public-health data functions into a class. How should I start defining a simple CaseRecord class with attributes like date, location, age, and cases, including validation inside __init__?”
+I used this to understand how to structure the class so that validation happened automatically when creating new records.
+AI helped outline a clean constructor format and the idea of using helper methods to organize validation.
+• Prompt 2:
+“If I want each case record to validate its fields automatically, should I use helper methods or property setters? I’m not sure how to keep the constructor clean but still check the inputs.”
+This helped me compare different approaches for encapsulation and decide to keep internal helper methods (like _validate_age and _format_date) for clarity.
+• Prompt 3:
+“How can I make sure my dataset methods use clear names that match my Project 1 functions? I want it to feel consistent but organized for OOP.”
+I used this to plan method naming in a way that stayed familiar from Project 1 while still fitting OOP style conventions.
+
