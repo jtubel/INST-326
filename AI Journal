@@ -88,3 +88,33 @@ https://chatgpt.com/share/690d278e-5f3c-800a-a49d-747f15b04856
 Week9
 I used AI to help review Avian Evolution
 https://chatgpt.com/share/6912a8e7-0638-8003-864e-8369c540c96c
+
+Week10
+I used AI to help me plan and review the object-oriented design for my part of the project.
+https://gemini.google.com/share/49b9bcaeea33
+
+Which classes received AI assistance
+
+• CaseRecord
+• CaseDataset
+
+I discussed how to restructure my existing single-class design into an inheritance hierarchy to support multiple file formats without duplicating code. 
+The rest of the logic as written and tested independently after reviewing the architectural advice.
+
+Prompts I used
+
+•Prompt 1:
+"I currently have a single CaseDataset class that only loads CSV files. For Project 3, I need to support JSON files as well. From an OOP perspective,
+does it make more sense to add if/else checks inside my existing class, or should I create a parent Dataset class with two children: CSVDataset and JSONDataset?
+I want to follow best practices for scalability."
+•Prompt 2:
+"I decided to use an abstract base class. Can you provide the standard Python boilerplate code for creating a class named AbstractDataset using the abc module? 
+I need to ensure that any child class is forced to implement load_data and validate_format."
+•Prompt 3: 
+"I'm confused about where my CaseRecord class fits in. Should CSVDataset inherit from CaseRecord, or should the dataset contain a list of CaseRecord objects?
+I need to demonstrate 'composition,' 
+but I want to make sure it makes logical sense for this specific domain."
+•Prompt 4:
+"I want to loop through a list containing both CSVDataset and JSONDataset objects and load them all at once. If I call .load_data() on items in the list, 
+how does Python know which version of the method (the CSV one or the JSON one) to run?"
+
