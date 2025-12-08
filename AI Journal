@@ -118,3 +118,6 @@ but I want to make sure it makes logical sense for this specific domain."
 "I want to loop through a list containing both CSVDataset and JSONDataset objects and load them all at once. If I call .load_data() on items in the list, 
 how does Python know which version of the method (the CSV one or the JSON one) to run?"
 
+Week12
+I used AI to help fix my bike
+https://gemini.google.com/share/e24824a6369c
