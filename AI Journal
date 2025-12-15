@@ -121,3 +121,48 @@ how does Python know which version of the method (the CSV one or the JSON one) t
 Week12
 I used AI to help fix my bike
 https://gemini.google.com/share/e24824a6369c
+
+Week 13
+I used AI to help me understand how to implement data persistence for complex custom objects and to clarify the distinction between "Integration" and "System" testing for our final test suite.
+
+Link to Chat: https://gemini.google.com/share/6fb4fcdcaa6f
+
+Which classes received AI assistance:
+-XMLDataset (Refactored from Kindness's DataLoader)
+-AbstractAnalyzer (New Interface)
+-TrendAnalyzer (Refactored from Kindness)
+-ForecastingAnalyzer (Refactored from Yonael)
+-PipelineManager (Persistence logic)
+-test_suite_v2.py (Test structure)
+-test_case_manager.py (Integration logic)
+
+Summary of Interaction: I discussed options for saving our application state, weighing the pros and cons of JSON versus Python’s pickle module for handling our custom AbstractDataset classes. 
+I also asked for clarification on the academic difference between "Integration" and "System" tests to ensure our test suite met the specific rubric requirements. The actual test cases and the pickle implementation were written and debugged by me.
+
+Prompts I used
+• Prompt 1:
+"I need to satisfy the 'Data Persistence' requirement for my final project. My PipelineManager class contains a list of custom Dataset objects. Is it better to manually write a to_json() method for every single class to save them, 
+or is there a standard Python module that can serialize the whole object graph at once? I need the most reliable method for a student project."
+• Prompt 2:
+"My assignment requires both 'Integration Tests' and 'System Tests.' I am using the unittest framework. What is the conceptual difference between these two in the context of a data processing pipeline? 
+Can you give me a conceptual example of what an integration test would check versus what a system test would check?"
+• Prompt 3:
+"I am merging code from three different teammates. One has a TrendAnalyzer and another has a ForecastingAnalyzer. I want my PipelineManager to run them all without using hardcoded if/else statements checking for specific class names. 
+How can I use polymorphism here to just call .analyze() on a generic list of tools?"
+
+Pt. 2
+Link to Chat: https://gemini.google.com/share/90f7064f9814
+I pasted snippets of my teammates' Project 2 code (a "universal" data loader and a standalone forecaster) and asked for architectural advice on how to split them up. 
+I specifically discussed how to extract the XML parsing logic into its own class without breaking the existing functionality, and how to create a generic analyze() method that could handle both statistical summaries (Kindness) and future predictions (Yonael) polymorphically.
+
+Prompts I used
+• Prompt 1 (Refactoring Kindness's Loader):
+"My teammate submitted a single DataLoader class that handles CSV, JSON, and XML files using a long chain of if/elif statements. I need to refactor this to fit my new AbstractDataset hierarchy. 
+How can I extract just the XML parsing logic into a new class called XMLDataset? I want it to inherit from my base class but keep his specific xml.etree logic."
+• Prompt 2 (Designing the Analysis Interface):
+"We have two different analysis needs: one for calculating basic trends (averages) and one for predicting future cases. Currently, they are completely different classes with different method names. 
+I want to create an AbstractAnalyzer parent class so our pipeline can run them both in a loop. What should the abstract method signature look like? Should it return a dictionary so both classes can output different types of results?"
+• Prompt 3 (Refactoring Yonael's Forecaster):
+"I am refactoring a class called EpidemicForecaster. Currently, it stores data inside self.daily_cases when it is initialized. However, for our new pipeline, we want to pass data into the analyzer dynamically. 
+How should I rewrite the class to be 'stateless'—so that I pass the records directly into the analyze() method instead of storing them in __init__?"
+
